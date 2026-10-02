@@ -1,0 +1,621 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portfolio — [Akanksha Doifode]</title>
+    <meta name="description" content="Personal portfolio — projects, skills and contact" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #94a3b8;
+            --accent: #6ee7b7;
+            --glass: rgba(255,255,255,0.04);
+            --radius: 14px;
+            --max-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html, body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+            background: linear-gradient(180deg,#061224 0%, #071625 60%);
+            color: #e6eef8;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            line-height: 1.45;
+            padding: 36px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background: linear-gradient(135deg,var(--accent),#60a5fa);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #021226;
+            box-shadow: 0 6px 18px rgba(6,11,24,0.6);
+        }
+
+        nav a {
+            color: var(--muted);
+            margin-left: 18px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+            nav a:hover {
+                color: var(--accent)
+            }
+
+        /* Hero */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 28px;
+            align-items: center;
+            margin-bottom: 36px;
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), var(--glass));
+            padding: 28px;
+            border-radius: var(--radius);
+            box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+        }
+
+        .hero h1 {
+            margin: 0 0 8px 0;
+            font-size: 2.2rem
+        }
+
+        .hero p.lead {
+            margin: 0;
+            color: var(--muted);
+            font-size: 1rem
+        }
+
+        .cta-row {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: linear-gradient(90deg,var(--accent),#60a5fa);
+            color: #021226;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.95rem;
+            box-shadow: 0 6px 18px rgba(6,11,24,0.45);
+        }
+
+            .btn.secondary {
+                background: transparent;
+                border: 1px solid rgba(255,255,255,0.06);
+                color: var(--muted);
+                font-weight: 600;
+            }
+
+        .profile {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            padding: 22px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(2,6,23,0.6);
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 18px;
+            margin: 0 auto 14px;
+            background: linear-gradient(135deg,#234, #456);
+            display: block;
+            box-shadow: 0 8px 20px rgba(2,6,23,0.45);
+        }
+
+        .meta {
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+            .section-title h2 {
+                margin: 0;
+                font-size: 1.15rem
+            }
+
+            .section-title p {
+                margin: 0;
+                color: var(--muted);
+                font-size: 0.95rem
+            }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 18px;
+            align-items: start
+        }
+
+        .bio p {
+            color: var(--muted);
+            margin-top: 6px
+        }
+
+        /* Skills */
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .skill {
+            min-width: 140px;
+            flex: 1 1 220px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.02), transparent);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+            .skill .label {
+                display: flex;
+                justify-content: space-between;
+                font-weight: 600;
+                color: var(--muted);
+                font-size: 0.92rem;
+                margin-bottom: 8px
+            }
+
+        .bar {
+            height: 8px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 8px;
+            overflow: hidden
+        }
+
+            .bar > i {
+                display: block;
+                height: 100%;
+                background: linear-gradient(90deg,var(--accent),#60a5fa);
+                width: 60%
+            }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+            gap: 16px;
+        }
+
+        .project {
+            padding: 14px;
+            border-radius: 12px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+            .project .thumb {
+                height: 140px;
+                border-radius: 10px;
+                background: #082033;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--muted);
+                font-weight: 700;
+            }
+
+            .project h3 {
+                margin: 0;
+                font-size: 1rem
+            }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.03);
+            padding: 6px 8px;
+            border-radius: 8px;
+            color: var(--muted);
+            font-size: 0.82rem
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 18px;
+            align-items: start
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        label {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        input[type="text"], input[type="email"], textarea {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 12px;
+            border-radius: 10px;
+            color: inherit;
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        textarea {
+            min-height: 140px;
+            resize: vertical
+        }
+
+        .inline-row {
+            display: flex;
+            gap: 12px
+        }
+
+        .note {
+            font-size: 0.9rem;
+            color: var(--muted)
+        }
+
+        footer {
+            margin-top: 18px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.9rem
+        }
+
+        /* Responsive */
+        @media (max-width:980px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: left
+            }
+
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        @media (max-width:480px) {
+            nav a {
+                display: none
+            }
+
+            header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 12px
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header> <a class="brand" href="#"> <div class="logo">YN</div> <div> <div style="font-weight:700">Akanksha Doifode</div> <div style="font-size:0.82rem;color:var(--muted);margin-top:2px">Front‑end Engineer</div> </div> </a> <nav aria-label="Main navigation"> <a href="#about">About</a> <a href="#skills">Skills</a> <a href="#projects">Projects</a> <a href="#contact">Contact</a> </nav> </header>
+        <main>
+            <section class="hero">
+                <div class="hero-card card">
+                    <h1>Hi, I'm Akanksha Doifode</h1>
+                    <p class="lead">I build accessible, fast web experiences. I specialize in modern front-end tooling, clean UI, and pragmatic engineering that helps teams ship safely and quickly.</p>
+
+                    <div class="cta-row">
+                        <a class="btn" href="#projects">View Projects</a>
+                        <a class="btn secondary" href="#contact">Get in touch</a>
+                    </div>
+
+                    <div style="margin-top:18px;display:flex;gap:16px;flex-wrap:wrap">
+                        <div style="background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;">
+                            <div style="font-weight:700">Fresher</div>
+                            <div style="color:var(--muted);font-size:0.9rem">Web Devloper</div>
+                        </div>
+                        <div style="background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;">
+                            <div style="font-weight:700">3+</div>
+                            <div style="color:var(--muted);font-size:0.9rem">Completed Projects</div>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="profile">
+                    <div class="avatar" aria-hidden="true"></div>
+                    <div style="font-weight:700;font-size:1.05rem">Akanksha Doifode</div>
+                    <div class="meta" style="margin-top:6px">Based in Washim, india</div>
+                    <p style="margin-top:10px;color:var(--muted);font-size:0.95rem">I focus on building performant, user-friendly interfaces with a passion for clean design and robust engineering.</p>
+                </aside>
+            </section>
+
+            <section id="about">
+                <div class="card">
+                    <div class="section-title">
+                        <h2>About Me</h2>
+                        <p class="note">Hello! I am Akanksha Doifode, an Engineering graduate passionate about web devlelopment.
+                        I sepcialize in creating interactive, high-performance web application using HTML,CSS,JavaScript,
+                        Bootstrap,and Sass with modern desing layouts. </p>
+                    </div>
+
+                    <div class="about-grid">
+                        <div class="bio">
+                            <p>Hello. I'm a front-end engineer who loves creating polished UI and delightful UX. My day-to-day includes designing component systems, optimizing performance, and mentoring junior devs. I enjoy working on complex problems and turning them into simple, maintainable solutions.</p>
+
+                            <ul style="margin-top:12px;color:var(--muted);padding-left:18px">
+                                <li>Strong emphasis on accessibility & performance</li>
+                                <li>Experience with React, TypeScript, and modern CSS</li>
+                                <li>Comfortable with CI/CD, testing, and collaborating with cross-functional teams</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <div style="display:flex;flex-direction:column;gap:10px">
+                                <div class="card" style="padding:12px">
+                                    <div style="font-weight:700">Currently</div>
+                                    <div style="color:var(--muted);margin-top:6px">Open to new opportunities — available for freelance and contract work.</div>
+                                </div>
+
+                                <div class="card" style="padding:12px">
+                                    <div style="font-weight:700">Contact</div>
+                                    <div style="color:var(--muted);margin-top:6px">akankshadoifode8@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills">
+                <div class="card">
+                    <div class="section-title">
+                        <h2>Skills</h2>
+                        <p class="note">Tools and technologies I use regularly</p>
+                    </div>
+
+                    <div class="skills-list" aria-hidden="false">
+                        <div class="skill">
+                            <div class="label"><span>JavaScript</span><span>85%</span></div>
+                            <div class="bar"><i style="width:85%"></i></div>
+                        </div>
+                        <div class="skill">
+                            <div class="label"><span>HTML5</span><span>82%</span></div>
+                            <div class="bar"><i style="width:82%"></i></div>
+                        </div>
+                        <div class="skill">
+                            <div class="label"><span>CSS3</span><span>88%</span></div>
+                            <div class="bar"><i style="width:88%"></i></div>
+                        </div>
+                        <div class="skill">
+                            <div class="label"><span>Bootstrap</span><span>70%</span></div>
+                            <div class="bar"><i style="width:70%"></i></div>
+                        </div>
+                        <div class="skill">
+                            <div class="label"><span></span>Sass<span>68%</span></div>
+                            <div class="bar"><i style="width:68%"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="card">
+                    <div class="section-title">
+                        <h2>Projects</h2>
+                        <p class="note">Selected work — click to view (links or demos)</p>
+                    </div>
+
+                    <div class="projects-grid" role="list">
+                        <article class="project" role="listitem">
+                            <div class="thumb">Interactive Web Devlopment</div>
+                            <h3>Web Devlopment Intership</h3>
+                            <p style="color:var(--muted);margin:0">Completed inetractive web devlopment project
+                            tasks and published live application on GitHub pages.</p>
+                            <div class="tags" aria-hidden="true">
+                                <span class="tag">HTML</span><span class="tag">CSS3</span><span class="tag">Javascript,Bootstrap,Sass</span>
+                            </div>
+                        </article>
+
+                        <article class="project" role="listitem">
+                            <div class="thumb">Saiket System</div>
+                            <h3>E-commerce landing Page</h3>
+                            <p style="color:var(--muted);margin:0">Realtime metrics with custom charts and server-side streaming.</p>
+                            <div class="tags">
+                                <span class="tag">D3</span><span class="tag">Node</span>
+                            </div>
+                        </article>
+
+                        <article class="project" role="listitem">
+                            <div class="thumb">codeSoft project</div>
+                            <h3>web devlopment project</h3>
+                            <p style="color:var(--muted);margin:0">Portfolio,landing Page and Calculator Web apps.</p>
+                            <div class="tags">
+                                <span class="tag">HTML</span><span class="tag">Javascript</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="card">
+                    <div class="section-title">
+                        <h2>Contact</h2>
+                        <p class="note">Send a message or request a resume</p>
+                    </div>
+
+                    <div class="contact-grid">
+                        <div>
+                            <form id="contactForm" class="card" aria-label="Contact form">
+                                <div style="display:flex;gap:12px">
+                                    <div style="flex:1">
+                                        <label for="name">Name</label>
+                                        <input id="name" name="name" type="text" required placeholder="Akanksha Doifode">
+                                    </div>
+                                    <div style="flex:1">
+                                        <label for="email">Email</label>
+                                        <input id="email" name="email" type="email" required placeholder="akankshadoifode8@gmail.com">
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label for="subject">Subject</label>
+                                    <input id="subject" name="subject" type="text" placeholder="Quick note about the request">
+                                </div>
+
+                                <div>
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" placeholder="Hi — I would like to talk about..." required></textarea>
+                                </div>
+
+                                <div style="display:flex;gap:12px;align-items:center;justify-content:space-between">
+                                    <button type="submit" class="btn">Send Message</button>
+                                    <div class="note" id="formStatus" aria-live="polite"></div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <aside class="card">
+                            <div style="font-weight:700">Let's work together</div>
+                            <p style="color:var(--muted);margin-top:8px">Prefer email? Reach me at <a href="akankshadoifode8@gmail.com" style="color:var(--accent);text-decoration:none">akankshadoifode8@gmail.com</a></p>
+
+                            <div style="margin-top:12px">
+                                <div style="font-weight:700">Availability</div>
+                                <div style="color:var(--muted);margin-top:6px">Open for freelance & full-time roles</div>
+                            </div>
+
+                            <div style="margin-top:16px">
+                                <div style="font-weight:700">Social</div>
+                                <div style="display:flex;gap:8px;margin-top:8px">
+                                    <a href="#" style="color:var(--muted);text-decoration:none">GitHub</a>
+                                    <a href="#" style="color:var(--muted);text-decoration:none">LinkedIn</a>
+                                    <a href="#" style="color:var(--muted);text-decoration:none">Twitter</a>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <footer>
+                © <span id="year"></span> Akanksha Doifode — Built with care.
+            </footer>
+        </main>
+    </div>
+    <script>
+ // Small interactive bits: form handling + smooth scroll + year document.getElementById('year').textContent = new Date().getFullYear();
+// Smooth scroll for internal links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const target = a.getAttribute('href');
+    if(target.length>1){
+      e.preventDefault();
+      const el = document.querySelector(target);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  });
+});
+
+// Fake submit (replace with fetch to your backend or mail service)
+const form = document.getElementById('contactForm');
+const status = document.getElementById('formStatus');
+form.addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  status.textContent = 'Sending…';
+  const data = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    subject: form.subject.value.trim(),
+    message: form.message.value.trim()
+  };
+  // Basic validation
+  if(!data.name||!data.email||!data.message){
+    status.textContent = 'Please complete required fields.';
+    return;
+  }
+  // Simulate network
+  try{
+    await new Promise(r=>setTimeout(r,900));
+    status.textContent = 'Message sent. Thank you!';
+    form.reset();
+  }catch(err){
+    status.textContent = 'Error sending message. Please try later.';
+  }
+});
+    </script>
+</body>
+</html>
